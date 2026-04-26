@@ -1,5 +1,5 @@
 package: community.lazycat.app.lark
-version: 0.1.0
+version: 0.1.8
 name: Lark
 description: "A music library and streaming application"
 min_os_version: 1.5.0
@@ -9,7 +9,7 @@ license: MIT
 
 locales:
   zh:
-    name: "Lark 音乐"
+    name: "百灵音乐"
     description: "音乐库管理与流媒体播放应用"
   en:
     name: "Lark Music"
@@ -19,3 +19,4 @@ permissions:
   required:
     - net.internet
     - document.read
+    - document.private

@@ -1,0 +1,41 @@
+params:
+  # 管理员账号设置（首次运行时使用，仅当数据库无用户时生效）
+  - id: admin_username
+    type: string
+    name: "Admin Username"
+    description: "Admin username for first-run bootstrap (only used when database has no users)"
+    default_value: "admin"
+
+  - id: admin_password
+    type: secret
+    name: "Admin Password"
+    description: "Admin password for first-run bootstrap (only used when database has no users)"
+    default_value: "$random(len=16)"
+
+  - id: admin_nickname
+    type: string
+    name: "Admin Nickname"
+    description: "Admin display name for first-run bootstrap (only used when database has no users)"
+    default_value: ""
+    optional: true
+
+  - id: library_dir
+    type: string
+    name: "Music Library Directory"
+    description: "Path to external music library folder"
+    default_value: "music"
+
+locales:
+  zh:
+    admin_username:
+      name: "管理员用户名"
+      description: "首次运行时创建的管理员用户名（仅当数据库无用户时生效）"
+    admin_password:
+      name: "管理员密码"
+      description: "首次运行时创建的管理员密码（仅当数据库无用户时生效）"
+    admin_nickname:
+      name: "管理员昵称"
+      description: "首次运行时创建的管理员显示名称（仅当数据库无用户时生效）"
+    library_dir:
+      name: "音乐库目录"
+      description: "外部音乐库文件夹路径"
