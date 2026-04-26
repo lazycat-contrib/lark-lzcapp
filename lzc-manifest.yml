@@ -1,0 +1,28 @@
+application:
+  subdomain: lark
+  multi_instance: true
+  upstreams:
+    - location: /
+      backend: http://lark:8080/
+  public_path:
+    - /
+
+services:
+  lark:
+    #  czyt/lark:latest
+    image: registry.lazycat.cloud/czyt/czyt/lark:0e600715185347a7
+    environment:
+      - LARK_PORT=8080
+      - LARK_DATA_DIR=/app/data
+      - LARK_LIBRARY_DIR=/app/data/music
+      - LARK_DB_PATH=/app/data/lark.db
+      - LARK_FRONTEND_ORIGIN=*
+    binds:
+      - /lzcapp/var/data:/app/data
+      - /lzcapp/documents/music:/app/data/music
+
+ext_config:
+  enable_media_access: true
+  enable_document_access: true
+  permissions:
+    - PERM_MEDIA_MOUNT_SHARED
