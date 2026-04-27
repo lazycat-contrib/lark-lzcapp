@@ -18,8 +18,8 @@ application:
 
 services:
   lark:
-    #  czyt/lark:v0.2.22
-    image: registry.lazycat.cloud/czyt/czyt/lark:e8a62bdf27cc5597
+    #  czyt/lark:v0.2.23
+    image: registry.lazycat.cloud/czyt/czyt/lark:f1f7740651f4671e
     environment:
       - LARK_PORT=8080
       - LARK_DATA_DIR=/app/data
