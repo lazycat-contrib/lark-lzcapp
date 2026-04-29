@@ -25,6 +25,19 @@ params:
     description: "Path to external music library folder"
     default_value: "music"
 
+  # 数据库配置
+  - id: db_type
+    type: string
+    name: "Database Type"
+    description: "Database backend type. SQLite is default (no DSN needed). Options: sqlite, postgres, mysql. For postgres: OWL_DB_DSN=postgres://user:pass@host:5432/dbname?sslmode=disable. For mysql: OWL_DB_DSN=user:pass@tcp(host:3306)/dbname?parseTime=true&charset=utf8mb4&loc=Local"
+    default_value: "sqlite"
+
+  - id: db_dsn
+    type: secret
+    name: "Database DSN"
+    description: "Database connection string (only needed for postgres/mysql). SQLite uses LARK_DB_PATH=/app/data/data.db by default. PostgreSQL format: postgres://owl:password@postgres:5432/owl?sslmode=disable. MySQL format: mysql://lark:password@tcp(mysql:3306)/owl?parseTime=true&charset=utf8mb4&loc=Local"
+    default_value: "/app/data/lark.db"
+
 locales:
   zh:
     admin_username:
@@ -39,3 +52,9 @@ locales:
     library_dir:
       name: "音乐库目录"
       description: "外部音乐库文件夹路径"
+      db_type:
+        name: "数据库类型"
+        description: "数据库后端类型。默认 SQLite（无需设置连接串）。可选: sqlite, postgres, mysql。PostgreSQL 格式: postgres://用户:密码@主机:5432/库名?sslmode=disable。MySQL 格式: 用户:密码@tcp(主机:3306)/库名?parseTime=true&charset=utf8mb4&loc=Local"
+      db_dsn:
+        name: "数据库连接串"
+        description: "数据库连接字符串（仅 postgres/mysql 需要设置）。SQLite 默认使用 /app/data/lark.db。PostgreSQL 格式: postgres://lark:密码@postgres:5432/owl?sslmode=disable。MySQL 格式: mysql://lark:密码@tcp(mysql:3306)/owl?parseTime=true&charset=utf8mb4&loc=Local"

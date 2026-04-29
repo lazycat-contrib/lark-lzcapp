@@ -19,13 +19,15 @@ application:
 
 services:
   lark:
-    #  czyt/lark:v0.4.4
-    image: registry.lazycat.cloud/czyt/czyt/lark:4d8fe25729e046d0
+    #  czyt/lark:v0.4.7
+    image: registry.lazycat.cloud/czyt/czyt/lark:cb85a695e95188d9
     environment:
       - LARK_PORT=8080
       - LARK_DATA_DIR=/app/data
-      - LARK_DB_PATH=/app/data/lark.db
       - LARK_FRONTEND_ORIGIN=*
+      # 数据库配置 - 根据类型选择
+      - LARK_DB_TYPE={{.U.db_type}}
+      - LARK_DB_DSN={{.U.db_dsn}}
       # 管理员设置（首次运行时使用）
       - LARK_ADMIN_USERNAME={{.U.admin_username}}
       - LARK_ADMIN_PASSWORD={{.U.admin_password}}
