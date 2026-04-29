@@ -23,7 +23,7 @@ params:
     type: string
     name: "Music Library Directory"
     description: "Path to external music library folder"
-    default_value: "music"
+    default_value: "Music"
 
   # 数据库配置
   - id: db_type
