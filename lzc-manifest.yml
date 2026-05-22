@@ -1,4 +1,5 @@
 application:
+  gpu_accel: true
   subdomain: lark
   multi_instance: true
   upstreams:
