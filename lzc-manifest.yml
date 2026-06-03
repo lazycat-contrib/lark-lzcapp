@@ -20,8 +20,8 @@ application:
 
 services:
   lark:
-    #  czyt/lark:v0.7.23
-    image: registry.lazycat.cloud/czyt/czyt/lark:a2f6577493d9d729
+    #  czyt/lark:v0.7.24
+    image: registry.lazycat.cloud/czyt/czyt/lark:7522ee86fd0b753d
     environment:
       - LARK_PORT=8080
       - LARK_DATA_DIR=/app/data
@@ -29,6 +29,9 @@ services:
       # 数据库配置 - 根据类型选择
       - LARK_DB_TYPE={{.U.db_type}}
       - LARK_DB_DSN={{.U.db_dsn}}
+      # SQLite 连接池配置（可选，仅 SQLite 模式生效）
+      - LARK_SQLITE_MAX_OPEN_CONNS={{.U.sqlite_max_open_conns}}
+      - LARK_SQLITE_MAX_IDLE_CONNS={{.U.sqlite_max_idle_conns}}
       # 管理员设置（首次运行时使用）
       - LARK_ADMIN_USERNAME={{.U.admin_username}}
       - LARK_ADMIN_PASSWORD={{.U.admin_password}}

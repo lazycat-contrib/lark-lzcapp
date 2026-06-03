@@ -38,6 +38,21 @@ params:
     description: "Database connection string (only needed for postgres/mysql). SQLite uses LARK_DB_PATH=/app/data/data.db by default. PostgreSQL format: postgres://owl:password@postgres:5432/owl?sslmode=disable. MySQL format: mysql://lark:password@tcp(mysql:3306)/owl?parseTime=true&charset=utf8mb4&loc=Local"
     default_value: "/app/data/lark.db"
 
+  # SQLite 连接池配置（可选）
+  - id: sqlite_max_open_conns
+    type: string
+    name: "SQLite Max Open Connections"
+    description: "SQLite connection pool size. Default 4. Lower to 2 on low-memory devices (e.g. NAS, Raspberry Pi)."
+    default_value: "4"
+    optional: true
+
+  - id: sqlite_max_idle_conns
+    type: string
+    name: "SQLite Max Idle Connections"
+    description: "SQLite idle connections kept warm. Should equal SQLite Max Open Connections."
+    default_value: "4"
+    optional: true
+
 locales:
   zh:
     admin_username:
@@ -58,3 +73,9 @@ locales:
     db_dsn:
       name: "数据库连接串"
       description: "数据库连接字符串（仅 postgres/mysql 需要设置）。SQLite 默认使用 /app/data/lark.db。PostgreSQL 格式: postgres://lark:密码@postgres:5432/owl?sslmode=disable。MySQL 格式: mysql://lark:密码@tcp(mysql:3306)/owl?parseTime=true&charset=utf8mb4&loc=Local"
+    sqlite_max_open_conns:
+      name: "SQLite 最大打开连接数"
+      description: "SQLite 连接池大小，默认 4。低内存设备（如 NAS、树莓派）建议设为 2。"
+    sqlite_max_idle_conns:
+      name: "SQLite 最大空闲连接数"
+      description: "SQLite 保持温热的空闲连接数，建议与最大打开连接数保持一致。"
