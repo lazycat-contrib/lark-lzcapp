@@ -20,8 +20,8 @@ application:
 
 services:
   lark:
-    #  czyt/lark:v0.9.30
-    image: registry.lazycat.cloud/czyt/czyt/lark:5acdae0d0bfb3020
+    #  czyt/lark:v0.9.31
+    image: registry.lazycat.cloud/czyt/czyt/lark:c7a439ba4c2d93d9
     environment:
       - LARK_PORT=8080
       - LARK_DATA_DIR=/app/data
@@ -36,6 +36,7 @@ services:
       - LARK_ADMIN_USERNAME={{.U.admin_username}}
       - LARK_ADMIN_PASSWORD={{.U.admin_password}}
       - LARK_ADMIN_NICKNAME={{.U.admin_nickname}}
+      - NO_DLNA_OPTION=true
       # 音乐库目录（根据用户选择使用外部目录或默认目录）
       - LARK_LIBRARY_DIR=/lzcapp/run/mnt/home/{{ .U.library_dir }}
     binds:
