@@ -1,0 +1,39 @@
+version: 1
+
+project:
+  root: .
+  build_config: lzc-build.yml
+  package_file: package.yml
+  output: dist/lark.lpk
+
+update:
+  strategy: publish
+  version_source:
+    type: image
+    image: lark
+
+build:
+  run_buildscript: false
+
+images:
+  - id: lark
+    target: service
+    service: lark
+    source: docker.io/czyt/lark
+    channel: stable
+    tag_regex: '^v?\d+\.\d+\.\d+$'
+    version_regex: '^v?(?P<version>\d+\.\d+\.\d+)$'
+    delivery:
+      mode: lazycat
+
+stores:
+  official:
+    enabled: true
+    skip_if_version_exists: true
+    create_if_missing: false
+    changelog_locales: [zh, en]
+  private:
+    enabled: true
+    skip_if_version_exists: true
+    name: Lark
+    summary: Published from GitHub Actions
