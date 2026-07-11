@@ -17,11 +17,11 @@ application:
           params:
             user: "{{ .U.admin_username }}"
             password: "{{ .U.admin_password }}"
-
 services:
   lark:
     #  czyt/lark:v0.9.31
-    image: registry.lazycat.cloud/czyt/czyt/lark:226ad187fae4e5fd
+    # upstream: docker.io/czyt/lark:v0.9.34
+    image: registry.lazycat.cloud/czyt/czyt/lark:96193280ac1d654f
     environment:
       - LARK_PORT=8080
       - LARK_DATA_DIR=/app/data
@@ -41,7 +41,6 @@ services:
       - LARK_LIBRARY_DIR=/lzcapp/run/mnt/home/{{ .U.library_dir }}
     binds:
       - /lzcapp/var/data:/app/data
-
 ext_config:
   enable_media_access: true
   enable_document_access: true
