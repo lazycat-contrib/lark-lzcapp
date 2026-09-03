@@ -4,7 +4,7 @@ name: Lark
 description: "A music library and streaming application"
 min_os_version: 1.5.0
 author: czyt
-homepage: https://github.com/czyt/lark
+homepage: https://github.com/ca-x/lark
 license: MIT
 locales:
   zh:
